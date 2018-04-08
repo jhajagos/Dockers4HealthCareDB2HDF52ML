@@ -1,0 +1,18 @@
+{
+  "source_db_config": {
+    "connection_string": "postgresql+psycopg2://postgres@localhost/postgres",
+    "limit": null,
+    "refresh_transactions_table": 1,
+    "batch_size": 500,
+    "schema": "ohdsi_cdm",
+    "where_criteria": null
+  },
+  "json_file_config":
+  {
+    "base_file_name": "mapped_ohdsi_cdm",
+    "data_directory": "/root/ohdsi/hdf5_build/"
+  },
+  "use_ujson": true,
+  "use_gzip_compression": true,
+  "output_type": "json_file"
+}
