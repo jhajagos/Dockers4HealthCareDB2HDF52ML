@@ -1,0 +1,3 @@
+{
+  "connection_string": "sqlite:////root/ohdsi/vocabulary/db/ohdsi_concept.db3"
+}
