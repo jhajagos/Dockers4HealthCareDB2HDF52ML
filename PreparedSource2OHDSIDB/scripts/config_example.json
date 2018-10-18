@@ -1,0 +1,7 @@
+{
+  "ACCESS_KEY": "",
+  "SECRET_KEY": "",
+  "REGION": "us-east-2",
+  "vocabulary_path": "../vocbulary/",
+  "vocabulary_file_name": "vocabulary_download_v5.zip"
+}

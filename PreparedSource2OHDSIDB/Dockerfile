@@ -31,6 +31,7 @@ RUN mkdir ~/ohdsi/; mkdir ~/ohdsi/vocabulary
 RUN mkdir ~/ohdsi/input
 RUN mkdir ~/ohdsi/output
 
-COPY ./vocabulary/vocabulary_download_v5.zip /root/ohdsi/vocabulary
+# Get vocabulary S3
+#COPY ./vocabulary/vocabulary_download_v5.zip /root/ohdsi/vocabulary
 
 RUN mkdir ~/ohdsi/scripts/
