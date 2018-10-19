@@ -4,9 +4,11 @@
 #
 
 # Unzip vocabulary
-
 cd /root/ohdsi/vocabulary
-unzip vocabulary_download_v5.zip
+
+wget $(cat s3.ohdsi_vocab.download.txt)
+
+unzip ohdsi_vocab.zip
 
 # Run java file to extract out CPT codes
 bash ./cpt.sh

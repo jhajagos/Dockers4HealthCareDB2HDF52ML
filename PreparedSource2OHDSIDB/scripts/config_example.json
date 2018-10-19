@@ -1,8 +1,9 @@
 {
   "ACCESS_KEY": "",
   "SECRET_KEY": "",
-  "s3_ohdsi_bucket_name": "ohdsi_supporting_sources",
-  "REGION": "us-east-2",
   "ohdsi_vocabulary_path": "../vocabulary/",
-  "ohdsi_vocabulary_file_name": "vocabulary_download_v5.zip"
+  "ohdsi_vocabulary_file_name": "vocabulary_download_v5.zip",
+  "s3_ohdsi_bucket_name": "",
+  "rxnorm_path": "../rxnorm/",
+  "rxnorm_file_name": "RxNorm_full_10012018.zip"
 }

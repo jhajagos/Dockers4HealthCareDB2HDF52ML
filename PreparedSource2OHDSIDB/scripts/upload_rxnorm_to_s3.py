@@ -5,7 +5,7 @@ import os
 import hashlib
 
 
-def main(file_name, bucket_name, access_key, secret_key, upload_key_name="ohdsi_vocab.zip"):
+def main(file_name, bucket_name, access_key, secret_key, upload_key_name="rxnorm_full.zip"):
 
     print(bucket_name)
 
@@ -14,8 +14,7 @@ def main(file_name, bucket_name, access_key, secret_key, upload_key_name="ohdsi_
 
     upload_result = s3.upload_file(file_name, bucket_name, upload_key_name, ExtraArgs={'ACL': 'public-read'})
 
-    with open("s3.ohdsi_vocab.download.txt", "w") as fw:
-
+    with open("s3.rxnorm.download.txt", "w") as fw:
         fw.write("https://s3.amazonaws.com/%s/%s" % (bucket_name, upload_key_name))
 
 
@@ -33,19 +32,14 @@ if __name__ == "__main__":
     access_key = config["ACCESS_KEY"]
     secret_key = config["SECRET_KEY"]
 
-    ohdsi_vocabulary_path = config["ohdsi_vocabulary_path"]
-    ohdsi_vocabulary_file_name = config["ohdsi_vocabulary_file_name"]
+    rxnorm_path = config["ohdsi_vocabulary_path"]
+    rxnorm_file_name = config["ohdsi_vocabulary_file_name"]
     s3_bucket_name = config["s3_ohdsi_bucket_name"]
 
-    file_to_upload = os.path.join(ohdsi_vocabulary_path, ohdsi_vocabulary_file_name)
+    file_to_upload = os.path.join(rxnorm_path, rxnorm_file_name)
 
     raw_encrypted_bucket_name = s3_bucket_name
 
     encrypted_bucket_name = hashlib.sha1(raw_encrypted_bucket_name.encode("utf8")).hexdigest()
 
     main(file_to_upload, encrypted_bucket_name, access_key, secret_key)
-
-
-
-
-

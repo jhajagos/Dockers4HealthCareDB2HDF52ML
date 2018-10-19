@@ -8,18 +8,22 @@ RUN apt-get install -y libreadline-gplv2-dev  libncursesw5-dev libssl-dev libsql
 RUN apt-get install -y git
 RUN apt-get install -y wget
 RUN apt-get install -y vim
+RUN apt-get install -y curl
 
 # Get Python 3.6 source
-RUN cd ~/; mkdir src; cd src; wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz ; tar -xzf Python-3.6.5.tgz
+RUN cd ~/; mkdir src; cd src; wget https://www.python.org/ftp/python/3.6.6/Python-3.6.6.tgz ; tar -xzf Python-3.6.6.tgz
 
-RUN cd ~/src/Python-3.6.5/; ./configure --enable-optimizations; make altinstall
+RUN cd ~/src/Python-3.6.6/; ./configure --enable-optimizations; make altinstall
 
 RUN apt-get install -y libpq-dev
-
+#
 RUN pip3.6 install --upgrade pip
 RUN pip3.6 install sqlalchemy
 RUN pip3.6 install ipython
 RUN pip3.6 install psycopg2
+RUN pip3.6 install sqlparse
+RUN pip3.6 install numpy
+RUN pip3.6 install pandas
 
 RUN apt-get install -y default-jre
 RUN apt-get install -y unzip
@@ -33,5 +37,21 @@ RUN mkdir ~/ohdsi/output
 
 # Get vocabulary S3
 #COPY ./vocabulary/vocabulary_download_v5.zip /root/ohdsi/vocabulary
+# As the OHDSI vocabulary is custom generated, once it it is downloaded from Athena, we need to upload to s3
+# using upload_vocabulary_to_s3.py which generates the s3.ohdsi_vocab.download.txt which contains the URL to download
+
+COPY ./scripts/s3.ohdsi_vocab.download.txt /root/ohdsi/vocabulary/
+
+RUN mkdir ~/ohdsi/rxnorm/
+COPY ./scripts/s3.rxnorm.download.txt /root/ohdsi/rxnorm/
 
 RUN mkdir ~/ohdsi/scripts/
+COPY ./scripts/build_vocabulary_json.sh /root/ohdsi/scripts/
+
+RUN apt-get install -y dos2unix
+RUN dos2unix /root/ohdsi/scripts/build_vocabulary_json.sh
+
+RUN chmod u+x /root/ohdsi/scripts/build_vocabulary_json.sh
+
+RUN mkdir ~/ohdsi/config
+COPY ./config/ps_2_cdm_config.json /root/ohdsi/config/
