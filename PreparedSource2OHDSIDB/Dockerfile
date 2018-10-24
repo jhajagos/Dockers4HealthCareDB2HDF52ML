@@ -47,9 +47,15 @@ COPY ./scripts/s3.rxnorm.download.txt /root/ohdsi/rxnorm/
 
 RUN mkdir ~/ohdsi/scripts/
 COPY ./scripts/build_vocabulary_json.sh /root/ohdsi/scripts/
+COPY ./scripts/build_rxnorm_json.sh /root/ohdsi/scripts/
+COPY ./scripts/import_ohdsi_database.sh /root/ohdsi/scripts/
+COPY ./scripts/map_hf_to_prepared_sources.sh /root/ohdsi/scripts/
 
 RUN apt-get install -y dos2unix
 RUN dos2unix /root/ohdsi/scripts/build_vocabulary_json.sh
+RUN dos2unix /root/ohdsi/scripts/build_rxnorm_json.sh
+RUN dos2unix /root/ohdsi/scripts/import_ohdsi_database.sh
+RUN dos2unix /root/ohdsi/scripts/map_hf_to_prepared_sources.sh
 
 RUN chmod u+x /root/ohdsi/scripts/build_vocabulary_json.sh
 

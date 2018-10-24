@@ -19,13 +19,14 @@ RUN pip install --upgrade pip
 RUN apt-get install -y libpq-dev
 
 RUN pip install sqlalchemy
+RUN pip install sqlparse
 RUN pip install ipython
 RUN pip install psycopg2
 RUN pip install ujson
 RUN pip install numpy
 RUN pip install h5py
 
-RUN mkdir /root/Git;
+RUN mkdir /root/Git
 RUN cd /root/Git; git clone https://github.com/jhajagos/TransformDBtoHDF5ML.git
 RUN cd /root/Git; git clone https://github.com/SBU-BMI/MappingOHDSI2HDF5.git
 

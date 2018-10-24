@@ -2,7 +2,7 @@
    "json_map_directory": "/root/ohdsi/vocabulary/",
    "csv_input_directory":  "/root/ohdsi/input/",
    "csv_output_directory": "/root/ohdsi/output/",
-   "connection_uri": "postgresql+psycopg2://postgres@localhost/postgres",
+   "connection_uri": "postgresql+psycopg2://postgres@host.docker.internal:32768/postgres",
    "schema": "ohdsi_cdm",
    "rxnorm_base_directory": "/root/ohdsi/rxnorm/rrf/"
 }

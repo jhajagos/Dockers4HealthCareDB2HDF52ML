@@ -1,6 +1,6 @@
 {
   "source_db_config": {
-    "connection_string": "postgresql+psycopg2://postgres@localhost/postgres",
+    "connection_string": "postgresql+psycopg2://postgres@host.docker.internal:32768/postgres",
     "limit": null,
     "refresh_transactions_table": 1,
     "batch_size": 500,
