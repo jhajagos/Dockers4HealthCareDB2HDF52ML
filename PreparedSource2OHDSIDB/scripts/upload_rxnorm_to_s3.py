@@ -32,8 +32,8 @@ if __name__ == "__main__":
     access_key = config["ACCESS_KEY"]
     secret_key = config["SECRET_KEY"]
 
-    rxnorm_path = config["ohdsi_vocabulary_path"]
-    rxnorm_file_name = config["ohdsi_vocabulary_file_name"]
+    rxnorm_path = config["rxnorm_path"]
+    rxnorm_file_name = config["rxnorm_file_name"]
     s3_bucket_name = config["s3_ohdsi_bucket_name"]
 
     file_to_upload = os.path.join(rxnorm_path, rxnorm_file_name)

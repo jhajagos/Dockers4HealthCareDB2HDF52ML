@@ -3,5 +3,6 @@
    "csv_input_directory":  "/root/ohdsi/input/",
    "csv_output_directory": "/root/ohdsi/output/",
    "connection_uri": "postgresql+psycopg2://postgres@localhost/postgres",
-   "schema": "ohdsi_cdm"
+   "schema": "ohdsi_cdm",
+   "rxnorm_base_directory": "/root/ohdsi/rxnorm/rrf/"
 }
