@@ -1,0 +1,10 @@
+{
+  "file_name": "",
+  "delimiter": ",",
+  "no_headers": false,
+  "table_name": "",
+  "db_schema": "prepared_source",
+  "drop_table_first": 1,
+  "no_primary_key": 1,
+  "connection_string": "postgresql+psycopg2://postgres@host.docker.internal:32768/postgres"
+}
