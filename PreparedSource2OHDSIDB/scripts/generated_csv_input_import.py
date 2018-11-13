@@ -4,7 +4,7 @@ import os
 import json
 
 
-def main(input_directory, template_name, script_directory, path_to_python="python"):
+def main(input_directory, template_name, script_directory, path_to_python="python3.6"):
 
     generated_templates = generate_json_import_template(input_directory + "*.csv",
                                            template_name)
@@ -21,7 +21,7 @@ def main(input_directory, template_name, script_directory, path_to_python="pytho
 
             fw.write("#!/bin/bash")
             fw.write("\n")
-            fw.write(path_to_python + " " + os.path.abspath("../bulk_import_data_from_csv_to_db.py") + " -j " +
+            fw.write(path_to_python + " " + os.path.abspath("./bulk_import_data_from_csv_to_db.py") + " -j " +
                      generated_template)
 
         import_all_script = os.path.join(script_directory, "import_all.sh")
@@ -71,7 +71,7 @@ def generate_json_import_template(file_name_pattern, template_json_file):
 
 if __name__ == "__main__":
 
-    main("Y:\\healthfacts\\20180919\\input\\", "../config/prepared_source_template.json", "./input/")
+    #main("Y:\\healthfacts\\20180919\\input\\", "../config/prepared_source_template.json", "./input/")
 
 
-    #main("/root/ohdsi/input/", "../config/prepared_source_template.json", "/root/ohdsi/scripts/import/")
+   main("/root/ohdsi/input/", "../config/prepared_source_template.json", "/root/ohdsi/scripts/import/")

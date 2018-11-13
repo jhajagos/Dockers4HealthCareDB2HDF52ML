@@ -34,7 +34,7 @@ def clean_header(raw_header):
             split_label = label.split(split_char)
 
             if len(split_label) > 1:
-                label = split_label.join(special_characters_map[split_char])
+                label = special_characters_map[split_char].join(split_label) #split_label.join(special_characters_map[split_char])
 
         label = "_".join([x for x in label.split("_") if len(x) > 0])
 
