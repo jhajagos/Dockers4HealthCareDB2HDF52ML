@@ -1,6 +1,8 @@
 FROM ubuntu:latest
 
 RUN apt-get update -y
+RUN ln -fs /usr/share/zoneinfo/US/Eastern /etc/localtime #&& dpkg-reconfigure -f noninteractive tzdata
+
 
 RUN apt-get install -y build-essential checkinstall
 RUN apt-get install -y libreadline-gplv2-dev  libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
@@ -9,21 +11,25 @@ RUN apt-get install -y git
 RUN apt-get install -y wget
 RUN apt-get install -y vim
 RUN apt-get install -y curl
+RUN apt-get install -y less
 
 # Get Python 3.6 source
-RUN cd ~/; mkdir src; cd src; wget https://www.python.org/ftp/python/3.6.6/Python-3.6.6.tgz ; tar -xzf Python-3.6.6.tgz
-
-RUN cd ~/src/Python-3.6.6/; ./configure --enable-optimizations; make altinstall
 
 RUN apt-get install -y libpq-dev
 #
-RUN pip3.6 install --upgrade pip
-RUN pip3.6 install sqlalchemy
-RUN pip3.6 install ipython
-RUN pip3.6 install psycopg2
-RUN pip3.6 install sqlparse
-RUN pip3.6 install numpy
-RUN pip3.6 install pandas
+#RUN apt-get install -y python3
+
+RUN apt-get install -y python3
+RUN apt-get install -y python3-pip
+RUN apt-get install -y  python3-dev
+
+RUN pip3 install --upgrade pip
+RUN pip3 install sqlalchemy
+RUN pip3 install ipython
+RUN pip3 install psycopg2
+RUN pip3 install sqlparse
+RUN pip3 install numpy
+RUN pip3 install pandas
 
 RUN apt-get install -y default-jre
 RUN apt-get install -y unzip
