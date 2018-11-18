@@ -32,10 +32,12 @@ RUN pip3 install numpy
 RUN pip3 install pandas
 
 
+RUN apt-get -y install software-properties-common
+
 RUN add-apt-repository ppa:linuxuprising/java
 RUN apt-get -y update
-RUN echo "oracle-java10-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
-RUN apt-get -y install oracle-java10-installer
+RUN echo "oracle-java11-installer shared/accepted-oracle-license-v1-2 select true" | debconf-set-selections
+RUN apt-get -y install oracle-java11-installer
 
 RUN apt-get install -y unzip
 
@@ -45,6 +47,7 @@ RUN mkdir ~/ohdsi/; mkdir ~/ohdsi/vocabulary
 
 RUN mkdir ~/ohdsi/input
 RUN mkdir ~/ohdsi/output
+RUN mkdir ~/ohdsi/config
 
 # Get vocabulary S3
 #COPY ./vocabulary/vocabulary_download_v5.zip /root/ohdsi/vocabulary
@@ -52,6 +55,7 @@ RUN mkdir ~/ohdsi/output
 # using upload_vocabulary_to_s3.py which generates the s3.ohdsi_vocab.download.txt which contains the URL to download
 
 COPY ./config/s3.ohdsi_vocab.download.txt /root/ohdsi/config/
+
 
 RUN mkdir ~/ohdsi/rxnorm/
 COPY ./config/s3.rxnorm.download.txt /root/ohdsi/rxnorm/
@@ -70,7 +74,6 @@ RUN dos2unix /root/ohdsi/scripts/map_hf_to_prepared_sources.sh
 
 RUN chmod u+x /root/ohdsi/scripts/build_vocabulary_json.sh
 
-RUN mkdir ~/ohdsi/config
 COPY ./config/ps_2_cdm_config.json /root/ohdsi/config/
 
 RUN mkdir ~/ohdsi/scripts/input/
