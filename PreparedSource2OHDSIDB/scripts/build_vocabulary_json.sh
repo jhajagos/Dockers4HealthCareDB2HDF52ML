@@ -11,7 +11,8 @@ wget $(cat ../config/s3.ohdsi_vocab.download.txt)
 unzip ohdsi_vocab.zip
 
 # Run java file to extract out CPT codes
-bash cpt.sh
+# Please edit this file in a running docker and put your UMLS credentials here: https://uts.nlm.nih.gov/home.html
+java -Dumls-user=XXXX -Dumls-password=XXXX --add-modules=java.xml.ws -jar cpt4.jar 5
 
 # Build JSON
 cd ~/ohdsi
