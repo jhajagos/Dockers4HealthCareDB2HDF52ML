@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /root/ohdsi/rxnorm/
-wget $(cat s3.rxnorm.download.txt)
+wget $(cat ../config/s3.rxnorm.download.txt)
 
 unzip rxnorm_full.zip
 

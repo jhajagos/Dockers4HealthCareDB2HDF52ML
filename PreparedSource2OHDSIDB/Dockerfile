@@ -31,7 +31,12 @@ RUN pip3 install sqlparse
 RUN pip3 install numpy
 RUN pip3 install pandas
 
-RUN apt-get install -y default-jre
+
+RUN add-apt-repository ppa:linuxuprising/java
+RUN apt-get -y update
+RUN echo "oracle-java10-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
+RUN apt-get -y install oracle-java10-installer
+
 RUN apt-get install -y unzip
 
 # More commands to setup DockerFile for mapping sources
@@ -46,10 +51,10 @@ RUN mkdir ~/ohdsi/output
 # As the OHDSI vocabulary is custom generated, once it it is downloaded from Athena, we need to upload to s3
 # using upload_vocabulary_to_s3.py which generates the s3.ohdsi_vocab.download.txt which contains the URL to download
 
-COPY ./scripts/s3.ohdsi_vocab.download.txt /root/ohdsi/vocabulary/
+COPY ./config/s3.ohdsi_vocab.download.txt /root/ohdsi/config/
 
 RUN mkdir ~/ohdsi/rxnorm/
-COPY ./scripts/s3.rxnorm.download.txt /root/ohdsi/rxnorm/
+COPY ./config/s3.rxnorm.download.txt /root/ohdsi/rxnorm/
 
 RUN mkdir ~/ohdsi/scripts/
 COPY ./scripts/build_vocabulary_json.sh /root/ohdsi/scripts/

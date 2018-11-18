@@ -44,8 +44,3 @@ if __name__ == "__main__":
     encrypted_bucket_name = hashlib.sha1(raw_encrypted_bucket_name.encode("utf8")).hexdigest()
 
     main(file_to_upload, encrypted_bucket_name, access_key, secret_key)
-
-
-
-
-

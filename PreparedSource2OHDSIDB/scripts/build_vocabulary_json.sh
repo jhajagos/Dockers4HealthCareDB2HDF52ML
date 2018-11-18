@@ -6,12 +6,12 @@
 # Unzip vocabulary
 cd /root/ohdsi/vocabulary
 
-wget $(cat s3.ohdsi_vocab.download.txt)
+wget $(cat ../config/s3.ohdsi_vocab.download.txt)
 
 unzip ohdsi_vocab.zip
 
 # Run java file to extract out CPT codes
-bash ./cpt.sh
+bash cpt.sh
 
 # Build JSON
 cd ~/ohdsi
