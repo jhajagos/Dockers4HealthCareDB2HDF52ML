@@ -10,7 +10,7 @@
   "json_file_config":
   {
     "base_file_name": "mapped_ohdsi_cdm",
-    "data_directory": "/root/ohdsi/hdf5_build/"
+    "data_directory": "/root/ohdsi/build_hdf5/"
   },
   "use_ujson": true,
   "use_gzip_compression": true,
