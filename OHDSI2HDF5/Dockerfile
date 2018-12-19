@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update -y
+RUN ln -fs /usr/share/zoneinfo/US/Eastern /etc/localtime #&& dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get install -y python
 RUN apt-get install -y python-setuptools
