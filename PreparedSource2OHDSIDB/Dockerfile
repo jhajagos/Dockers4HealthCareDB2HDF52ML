@@ -13,8 +13,6 @@ RUN apt-get install -y vim
 RUN apt-get install -y curl
 RUN apt-get install -y less
 
-# Get Python 3.6 source
-
 RUN apt-get install -y libpq-dev
 #
 #RUN apt-get install -y python3
