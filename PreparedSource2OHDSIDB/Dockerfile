@@ -31,11 +31,7 @@ RUN pip3 install pandas
 
 
 RUN apt-get -y install software-properties-common
-
-RUN add-apt-repository ppa:linuxuprising/java
-RUN apt-get -y update
-RUN echo "oracle-java11-installer shared/accepted-oracle-license-v1-2 select true" | debconf-set-selections
-RUN apt-get -y install oracle-java11-installer
+RUN apt install -y default-jdk
 
 RUN apt-get install -y unzip
 
