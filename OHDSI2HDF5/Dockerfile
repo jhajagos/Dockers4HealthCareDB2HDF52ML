@@ -44,9 +44,10 @@ COPY scripts/generate_documents.sh /root/ohdsi/scripts/
 COPY scripts/generate_hdf5.sh /root/ohdsi/scripts/
 COPY scripts/generate_hdf5_statistics.sh /root/ohdsi/scripts/
 COPY scripts/generate_map2_tables.sh /root/ohdsi/scripts/
+COPY scripts/run_pipeline.sh /root/ohdsi/scripts/
 
 RUN dos2unix /root/ohdsi/scripts/generate_documents.sh
 RUN dos2unix /root/ohdsi/scripts/generate_hdf5.sh
 RUN dos2unix /root/ohdsi/scripts/generate_hdf5_statistics.sh
 RUN dos2unix /root/ohdsi/scripts/generate_map2_tables.sh
-
+RUN dos2unix /root/ohdsi/scripts/run_pipeline.sh
