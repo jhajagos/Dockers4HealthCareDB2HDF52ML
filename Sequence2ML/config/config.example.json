@@ -1,4 +1,5 @@
 {
-  "connection_string": "",
-  "schema": "odhsi"
+  "connection_uri": "",
+  "schema": "odhsi",
+  "export_directory": "/root/ohdsi/input/"
 }

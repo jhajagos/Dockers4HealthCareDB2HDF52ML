@@ -34,8 +34,12 @@ RUN apt-get install -y unzip
 RUN mkdir ~/Git; cd ~/Git; git clone https://github.com/jhajagos/TimeWeaver.git
 RUN cd ~/Git; git clone https://github.com/jhajagos/agile_data_tools.git
 
+RUN mkdir ~/ohdsi/
 RUN mkdir ~/ohdsi/input
 RUN mkdir ~/ohdsi/output
+RUN mkdir ~/ohdsi/output/csv/
+RUN mkdir ~/ohdsi/output/hdf5/
+
 RUN mkdir ~/ohdsi/config
 
 
@@ -47,9 +51,15 @@ RUN apt-get install -y dos2unix
 
 # RUN chmod u+x /root/ohdsi/scripts/build_vocabulary_json.sh
 
-# COPY ./config/ps_2_cdm_config.json /root/ohdsi/config/
+COPY ./config/config_export.json /root/ohdsi/config/
 
-RUN mkdir ~/ohdsi/scripts/input/
+COPY ./scripts/generate_export_json.py /root/ohdsi/scripts/
+
+COPY ./scripts/run_sequence_generation.sh /root/ohdsi/scripts/
+
+RUN dos2unix  /root/ohdsi/scripts/run_sequence_generation.sh
+
+RUN chmod u+x  /root/ohdsi/scripts/run_sequence_generation.sh
 
 #COPY ./scripts/bulk_import_data_from_csv_to_db.py /root/ohdsi/scripts/
 #COPY ./scripts/generated_csv_input_import.py /root/ohdsi/scripts/
