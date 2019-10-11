@@ -80,8 +80,8 @@ If you don't have a PostGreSQL database deployed you can use a Docker.
 docker run -p postgres:latest
 ```
 
-You probably need to edit the `ps_2_cdm_config.json` for the connection string
-and database schema.
+You will need to edit the `ps_2_cdm_config.json` for the connection string
+and database schema settings.
 
 ```bash
 cd /root/ohdsi/config/
@@ -101,7 +101,11 @@ vim ps_2_cdm_config.json
 
 ### Generate HDF5 files in a Docker Container
 
+A single command within the container will run the pipeline. This command will
+generate the map2 tables in the PostGreSQL database, compressed JSON.gz files, and the 
+final HDF5 files.
 ```bash
-
+cd /root/ohdsi/scripts/
+./run_pipeline.sh
 ```
 
