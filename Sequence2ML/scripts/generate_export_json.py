@@ -29,7 +29,7 @@ def main():
         export_table_dict["connection_uri"] = config_dict["connection_uri"]
         export_table_dict["table_name"] = config_dict["schema"] + "." + table_name
         export_table_dict["schema"] = config_dict["schema"]
-        export_table_dict["order_by"] = ["person_id", "visit_occurrence_id"]
+        export_table_dict["order_by"] = ["visit_occurrence_id"]
 
         if "restrictions" in config_dict:
             export_table_dict["restrictions"] = config_dict["restrictions"]
@@ -37,7 +37,7 @@ def main():
         export_table_list += [export_table_dict]
 
     with open("../config/export_tables.json", "w") as fw:
-        json.dump( export_table_list, fw, sort_keys=True, indent=4, separators=(',', ': '))
+        json.dump(export_table_list, fw, sort_keys=True, indent=4, separators=(',', ': '))
 
 
 if __name__ == "__main__":
