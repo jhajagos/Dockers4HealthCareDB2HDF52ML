@@ -10,8 +10,10 @@ the zip file.
 
 http://athena.ohdsi.org/vocabulary/list
 
-Select the vocabularies that you want to to include. For most modern EHR systems you will want: SNOMED, CPT4, HCPCS,
-LOINC, RxNorm, NDC, Gender, Race, CMS Place of Service, ATC, Revenue Codes, Ethnicity, NUCC, SPL, ICD10CM, ICDCM, and ICD9Proc.
+Select the vocabularies that you want to to include. For most modern 
+EHR systems you will want: SNOMED, CPT4, HCPCS,
+LOINC, RxNorm, NDC, Gender, Race, CMS Place of Service, ATC, Revenue Codes, 
+Ethnicity, NUCC, SPL, ICD10CM, ICDCM, and ICD9Proc.
 
 ```bash
 python upload_vocabulary_to_s3.py
