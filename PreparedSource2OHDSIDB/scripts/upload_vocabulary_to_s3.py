@@ -15,7 +15,6 @@ def main(file_name, bucket_name, access_key, secret_key, upload_key_name="ohdsi_
     upload_result = s3.upload_file(file_name, bucket_name, upload_key_name, ExtraArgs={'ACL': 'public-read'})
 
     with open("s3.ohdsi_vocab.download.txt", "w") as fw:
-
         fw.write("https://s3.amazonaws.com/%s/%s" % (bucket_name, upload_key_name))
 
 
