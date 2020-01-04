@@ -28,7 +28,7 @@ RUN pip3 install numpy
 RUN pip3 install pandas
 
 RUN apt-get -y install software-properties-common
-RUN apt install -y default-jdk
+RUN apt-get install -y openjdk-8-jdk
 
 RUN apt-get install -y unzip
 
@@ -66,10 +66,11 @@ RUN dos2unix /root/ohdsi/scripts/import_ohdsi_database.sh
 RUN dos2unix /root/ohdsi/scripts/map_hf_to_prepared_sources.sh
 
 RUN chmod u+x /root/ohdsi/scripts/build_vocabulary_json.sh
+RUN chmod u+x /root/ohdsi/scripts/build_local_vocabulary_json.sh
 
 COPY ./config/ps_2_cdm_config.json /root/ohdsi/config/
 
-RUN mkdir ~/ohdsi/scripts/input/
+RUN mkdir ~/ohdsi/scripts/
 
 COPY ./scripts/bulk_import_data_from_csv_to_db.py /root/ohdsi/scripts/
 COPY ./scripts/generated_csv_input_import.py /root/ohdsi/scripts/

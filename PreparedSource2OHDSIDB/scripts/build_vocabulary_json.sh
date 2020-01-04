@@ -14,7 +14,7 @@ unzip ohdsi_vocab.zip
 
 # Run java file to extract out CPT codes
 # Please edit this file in a running docker or set environment variables and put your UMLS credentials here: https://uts.nlm.nih.gov/home.html
-java  -Dumls-user=$UMLS_USER_NAME -Dumls-password=$UMLS_PASSWORD --add-modules=java.xml.ws -jar cpt4.jar 5
+java -Dumls-user=$UMLS_USER_NAME -Dumls-password=$UMLS_PASSWORD -jar cpt4.jar 5
 
 # Build JSON
 cd ~/ohdsi
