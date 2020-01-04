@@ -14,8 +14,6 @@ RUN apt-get install -y curl
 RUN apt-get install -y less
 
 RUN apt-get install -y libpq-dev
-#
-#RUN apt-get install -y python3
 
 RUN apt-get install -y python3
 RUN apt-get install -y python3-pip
@@ -28,7 +26,6 @@ RUN pip3 install psycopg2
 RUN pip3 install sqlparse
 RUN pip3 install numpy
 RUN pip3 install pandas
-
 
 RUN apt-get -y install software-properties-common
 RUN apt install -y default-jdk
