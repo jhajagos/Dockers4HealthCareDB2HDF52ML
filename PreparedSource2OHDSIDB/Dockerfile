@@ -70,8 +70,6 @@ RUN chmod u+x /root/ohdsi/scripts/build_local_vocabulary_json.sh
 
 COPY ./config/ps_2_cdm_config.json /root/ohdsi/config/
 
-RUN mkdir ~/ohdsi/scripts/
-
 COPY ./scripts/bulk_import_data_from_csv_to_db.py /root/ohdsi/scripts/
 COPY ./scripts/generated_csv_input_import.py /root/ohdsi/scripts/
 COPY ./scripts/create_schemas.py /root/ohdsi/scripts/
