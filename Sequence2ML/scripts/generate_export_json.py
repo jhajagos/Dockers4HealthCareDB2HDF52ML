@@ -7,10 +7,11 @@ def main():
     with open("../config/config_export.json") as f:
         config_dict = json.load(f)
 
-    table_names = [
-        "map2_condition_occurrence", "map2_drug_exposure", "map2_measurement", "map2_observation", "map2_person_visit_occurrence",
-        "map2_procedure_occurrence", "map2_visit_occurrence"
-    ]
+    table_names = ["map2_condition_occurrence", "map2_drug_exposure", "map2_measurement_numeric",
+                   "map2_measurement_categorical",
+                   "map2_observation_numeric", "map2_observation_categorical", "map2_person_visit_occurrence",
+                   "map2_procedure_occurrence", "map2_visit_occurrence", "map2_condition_occurrence_hierarchy"
+                   ]
 
     export_table_template_dict = {
          "file_name": None,
