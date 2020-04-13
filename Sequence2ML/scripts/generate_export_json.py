@@ -11,7 +11,7 @@ def main():
                    "map2_measurement_categorical",
                    "map2_observation_numeric", "map2_observation_categorical", "map2_person_visit_occurrence",
                    "map2_procedure_occurrence", "map2_visit_occurrence", "map2_condition_occurrence_hierarchy",
-                   "map2_atc3_drug_exposure", "map2_atc4_drug_exposure", "map2_drug_ingredients"
+                   "map2_atc3_drug_exposure", "map2_atc4_drug_exposure", "map2_drug_ingredients", "map2_visit_detail"
                    ]
 
     export_table_template_dict = {
