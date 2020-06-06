@@ -33,6 +33,7 @@ RUN apt-get install -y unzip
 # More commands to setup DockerFile for mapping sources
 RUN mkdir ~/Git; cd ~/Git; git clone https://github.com/jhajagos/TimeWeaver.git
 RUN cd ~/Git; git clone https://github.com/jhajagos/agile_data_tools.git
+RUN cd ~/Git; git clone https://github.com/jhajagos/LSTMSeq2ML.git
 
 RUN mkdir ~/ohdsi/
 RUN mkdir ~/ohdsi/input

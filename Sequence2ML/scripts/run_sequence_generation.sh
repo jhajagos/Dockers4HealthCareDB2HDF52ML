@@ -17,4 +17,4 @@ python3 package_sequences.py -f /root/ohdsi/output/ohdsi_sequence.json.txt -c sc
 
 python3 package_sequences.py -f /root/ohdsi/output/ohdsi_sequence.json.txt -c csv -b ohdsi -d /root/ohdsi/output/csv/
 
-python3 package_sequences.py -f /root/ohdsi/output/ohdsi_sequence.json.txt -c hdf5 -b ohdsi -d /root/ohdsi/output/csv/
+python3 package_sequences.py -f /root/ohdsi/output/ohdsi_sequence.json.txt -c hdf5 -b ohdsi -d /root/ohdsi/output/csv/ -n 150
