@@ -15,4 +15,7 @@ python3 package_sequences.py -f /root/ohdsi/output/ohdsi_sequence.json.txt -c sc
 
 python3 package_sequences.py -f /root/ohdsi/output/ohdsi_sequence.json.txt -c csv -b ohdsi -d /root/ohdsi/output/csv/
 
-python3 package_sequences.py -f /root/ohdsi/output/ohdsi_sequence.json.txt -c hdf5 -b ohdsi -d /root/ohdsi/output/csv/ -n 150
+python3 package_sequences.py -f /root/ohdsi/output/ohdsi_sequence.json.txt -c hdf5 -b ohdsi -d /root/ohdsi/output/csv/ -n 200
+
+cd ~/ohdsi/output/csv/
+python3 ~/Git/LSTMSeq2ML/preprocess_data_measured.py -f ohdsi_sequences.hdf5 -o processed_ohdsi_sequences.hdf5 -a -n 10
