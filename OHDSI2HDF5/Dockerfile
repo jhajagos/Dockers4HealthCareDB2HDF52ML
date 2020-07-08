@@ -19,6 +19,8 @@ RUN apt-get install -y vim
 RUN pip install --upgrade pip
 RUN apt-get install -y libpq-dev
 
+RUN apt-get install -y postgresql-client
+
 RUN pip install sqlalchemy
 RUN pip install sqlparse
 RUN pip install ipython
