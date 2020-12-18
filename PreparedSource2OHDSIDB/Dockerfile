@@ -18,6 +18,8 @@ RUN apt-get install -y python3
 RUN apt-get install -y python3-pip
 RUN apt-get install -y  python3-dev
 
+RUN apt-get install -y  postgresql-client
+
 RUN pip3 install --upgrade pip
 RUN pip3 install sqlalchemy
 RUN pip3 install ipython

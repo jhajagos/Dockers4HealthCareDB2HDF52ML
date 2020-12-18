@@ -10,7 +10,10 @@ sudo docker build --no-cache ./ -t ps2ohdsi:latest
 ```
 
 ## Build Vocabulary
-The first step is to build vocabulary files for mapping.
+
+The first step is to build vocabulary files for mapping. In general you build the 
+vocabulary to an externally mounted directory so it can be used for mapping.
+
 ```bash
 mkdir /data/ohdsi/vocab/51/
 # Generated from http://athena.ohdsi.org/
@@ -30,3 +33,14 @@ export UMLS_PASSWORD="YourUMLSPassword"
 cd /root/ohdsi/scripts/
 bash build_local_vocabulary.sh
 ```
+
+## Running a docker image for mapping to OHDSI CDM
+
+```bash
+sudo docker run -v /data/ohdsi/realworld/covid/20201123/input/:/root/ohdsi/input/ \
+    -v /data/ohdsi/realworld/covid/20201123/output/:/root/ohdsi/output/ \
+    -v /data/ohdsi/vocabulary/20200517/51m/:/root/ohdsi/vocabulary/ \
+    --name rw_covid_ohdsi_202011 \
+    -it ps2ohdsi:latest /bin/bash
+```
+
